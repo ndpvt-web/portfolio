@@ -161,30 +161,6 @@ export default function CaseStudyLayout({
         </div>
       </Section>
 
-      {/* ── REFLECTION ── */}
-      <Section variant="mid">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="max-w-2xl"
-        >
-          <p
-            className="font-mono text-[var(--text-tertiary)] mb-6"
-            style={{ fontSize: "var(--text-caption)" }}
-          >
-            REFLECTION
-          </p>
-          <p
-            className="italic text-[var(--text-secondary)] leading-relaxed"
-            style={{ fontSize: "var(--text-body)" }}
-          >
-            &ldquo;{cs.reflection}&rdquo;
-          </p>
-        </motion.div>
-      </Section>
-
       {/* ── FOOTER NAV ── */}
       <Section variant="dark" className="py-0">
         <CaseStudyNav prev={prev} next={next} />
