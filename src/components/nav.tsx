@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { NAV_ITEMS } from "@/data/navigation";
 import { cn } from "@/lib/utils";
 import ThemeToggle from "./theme-toggle";
+import LocaleToggle from "./locale-toggle";
 import MobileNav from "./mobile-nav";
 
 export default function Nav() {
@@ -77,6 +78,7 @@ export default function Nav() {
             </nav>
 
             <div className="flex items-center gap-4">
+              <LocaleToggle />
               <ThemeToggle />
               <button
                 className="md:hidden text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-150"

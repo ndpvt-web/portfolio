@@ -14,6 +14,7 @@ export default function Section({ children, variant, className, id }: SectionPro
       className={cn(
         "w-full",
         "py-16 md:py-20 lg:py-28",
+        "section-lazy",
         variant === "dark" ? "bg-[var(--bg-base)]" : "bg-[var(--bg-surface)]",
         className
       )}

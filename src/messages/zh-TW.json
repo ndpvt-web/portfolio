@@ -1,0 +1,10 @@
+{
+  "nav": { "home": "首頁", "projects": "專案", "about": "關於", "contact": "聯絡" },
+  "hero": { "title": "Nivesh Dandyan", "subtitle": "AI 智能代理架構師", "tagline": "為複雜工作流程構建自我進化的 AI 系統。" },
+  "stats": { "users": "服務用戶數", "views": "自然流量觀看數", "weeks": "週達到1500萬觀看", "solo": "獨立交付產品" },
+  "projects": { "title": "專案", "search_placeholder": "按名稱、標籤或類別搜尋...", "no_results": "沒有匹配的專案", "featured": "精選", "notable": "值得關注", "more": "更多專案" },
+  "about": { "heading": "我設計 AI 智能代理系統。", "available": "可提供諮詢服務。" },
+  "contact": { "heading": "一起打造卓越。", "cta": "複製郵件", "copied": "已複製！" },
+  "footer": { "copyright": "Nivesh Dandyan" },
+  "meta": { "locale_name": "繁體中文", "locale_flag": "中" }
+}
