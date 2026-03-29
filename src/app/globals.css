@@ -1,26 +1,133 @@
 @import "tailwindcss";
 
+/* ─── Design Tokens (Dark-First) ─── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Surfaces -- layered elevation (Linear pattern) */
+  --bg-base: #0a0a0a;
+  --bg-surface: #111111;
+  --bg-elevated: #1a1a1a;
+  --bg-border: #262626;
+  --bg-code: #0d1117;
+
+  /* Text -- opacity hierarchy */
+  --text-primary: rgba(255, 255, 255, 0.95);
+  --text-secondary: rgba(255, 255, 255, 0.60);
+  --text-tertiary: rgba(255, 255, 255, 0.40);
+  --text-disabled: rgba(255, 255, 255, 0.25);
+
+  /* Accent -- default orange (Claude-inspired) */
+  --accent: #f97316;
+  --accent-soft: rgba(249, 115, 22, 0.15);
+  --accent-hover: #fb923c;
+
+  /* Semantic */
+  --success: #22c55e;
+  --warning: #eab308;
+  --error: #ef4444;
+  --info: #6366f1;
+
+  /* Typography */
+  --font-display: var(--font-geist-sans), system-ui, sans-serif;
+  --font-body: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), 'JetBrains Mono', 'SF Mono', monospace;
+
+  /* Fluid type scale */
+  --text-hero: clamp(3rem, 6vw, 6rem);
+  --text-display: clamp(2rem, 4vw, 3.5rem);
+  --text-title: clamp(1.5rem, 2.5vw, 2rem);
+  --text-heading: clamp(1.125rem, 1.5vw, 1.5rem);
+  --text-body: clamp(0.9375rem, 1vw, 1.0625rem);
+  --text-small: 0.8125rem;
+  --text-caption: 0.75rem;
 }
 
+/* ─── Light Mode ─── */
+[data-theme="light"] {
+  --bg-base: #fafafa;
+  --bg-surface: #ffffff;
+  --bg-elevated: #f5f5f5;
+  --bg-border: #e5e5e5;
+  --bg-code: #f6f8fa;
+  --text-primary: rgba(0, 0, 0, 0.90);
+  --text-secondary: rgba(0, 0, 0, 0.55);
+  --text-tertiary: rgba(0, 0, 0, 0.35);
+  --text-disabled: rgba(0, 0, 0, 0.20);
+}
+
+/* ─── Accent Color Variants ─── */
+[data-accent="orange"] {
+  --accent: #f97316;
+  --accent-soft: rgba(249, 115, 22, 0.15);
+  --accent-hover: #fb923c;
+}
+[data-accent="cyan"] {
+  --accent: #06b6d4;
+  --accent-soft: rgba(6, 182, 212, 0.15);
+  --accent-hover: #22d3ee;
+}
+[data-accent="purple"] {
+  --accent: #8b5cf6;
+  --accent-soft: rgba(139, 92, 246, 0.15);
+  --accent-hover: #a78bfa;
+}
+[data-accent="green"] {
+  --accent: #22c55e;
+  --accent-soft: rgba(34, 197, 94, 0.15);
+  --accent-hover: #4ade80;
+}
+
+/* ─── Tailwind Theme Integration ─── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--bg-base);
+  --color-foreground: var(--text-primary);
+  --color-surface: var(--bg-surface);
+  --color-elevated: var(--bg-elevated);
+  --color-border: var(--bg-border);
+  --color-code-bg: var(--bg-code);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-hover: var(--accent-hover);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --font-sans: var(--font-display);
+  --font-mono: var(--font-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ─── Base Styles ─── */
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.7;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-border);
+  border-radius: 3px;
+}
+
+/* ─── Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ─── Selection ─── */
+::selection {
+  background: var(--accent-soft);
+  color: var(--text-primary);
 }
