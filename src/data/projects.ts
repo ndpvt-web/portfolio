@@ -10,6 +10,8 @@ export interface CaseStudy {
   approach: string;
   results: CaseStudyResult[];
   reflection: string;
+  architectureMermaid?: string;
+  impact?: string;
 }
 
 export interface Project {
@@ -54,6 +56,17 @@ export const projects: Project[] = [
         { metric: "Retrieval latency", value: "<100ms" },
       ],
       reflection: "",
+      architectureMermaid: `graph LR
+  Q[Query] --> FTS[FTS5 Full-Text]
+  Q --> TF[TF-IDF Scoring]
+  Q --> EG[Entity Graph]
+  FTS --> WM[Weighted Merge\n40% / 35% / 25%]
+  TF --> WM
+  EG --> WM
+  WM --> R[Ranked Results]
+  R --> RL[Rule Engine\n514 rules]
+  RL -->|feedback| EG`,
+      impact: "514 rules learned autonomously. 15,436 events processed. Sub-100ms retrieval latency makes it viable as a synchronous pre-step before every agent action. Powers the memory layer for Atlas, Hermes, and Jarvis.",
     },
   },
   {
@@ -76,6 +89,15 @@ export const projects: Project[] = [
         { metric: "Learning", value: "Persistent across sessions" },
       ],
       reflection: "",
+      architectureMermaid: `graph TD
+  SS[Screenshot Capture] --> VR[Visual Reasoning]
+  VR --> AD[Action Decision]
+  AD --> MK[Mouse + Keyboard]
+  MK --> SS
+  AD -->|success/fail| ME[Memory Layer\nCapy Cortex]
+  ME -->|prior experience| VR
+  ME -->|anti-patterns| AD`,
+      impact: "First desktop agent that evolves its own capabilities across sessions. Every action generates structured learning events -- mistakes become training signal without manual labeling. NDA-restricted architecture currently in testing phase.",
     },
   },
   {
@@ -97,6 +119,16 @@ export const projects: Project[] = [
         { metric: "Human intervention", value: "Zero" },
       ],
       reflection: "",
+      architectureMermaid: `graph LR
+  SC[Scout\nLead Discovery] --> DIR[Director\nDesign System]
+  DIR --> BLD[Builder\nSite Generation]
+  BLD --> QA[QA Agent\n40+ checks]
+  QA --> OUT[Outreach Agent\nCold Email]
+  OUT --> FU[Follow-Up\nSequences]
+  CO[Coordinator] -.->|state mgmt| SC
+  CO -.->|retries| BLD
+  CO -.->|job queue| OUT`,
+      impact: "Earned 2,500 HKD in revenue with zero human intervention. 8 specialized agents run 24/7 covering the full agency pipeline from lead discovery to outreach follow-up. Zero escalations required.",
     },
   },
   {
@@ -118,6 +150,14 @@ export const projects: Project[] = [
         { metric: "USB required", value: "Zero" },
       ],
       reflection: "",
+      architectureMermaid: `graph LR
+  CA[Cloud Agent\nPrompt] --> CF[Cloudflare\nTunnel]
+  CF --> MD[Mac Daemon\nlaunchd]
+  MD --> XC[xcodebuild\n+ Signing]
+  XC --> DC[devicectl\nWireless Install]
+  DC --> IP[iPhone\nApp Running]
+  MD -->|auto-reconnect| CF`,
+      impact: "Shipped to 50,000+ users as HappyCapy's core feature. 30-second onboarding from install script to app on device. Zero USB required. Stress-tested at production scale across macOS versions and device types.",
     },
   },
   {
@@ -139,6 +179,16 @@ export const projects: Project[] = [
         { metric: "Organic views", value: "15M in 4 weeks" },
       ],
       reflection: "",
+      architectureMermaid: `graph TD
+  SQ[1. Seed Queries\n1000 from brief] --> MQ[2. Multi-Model Query\nGPT-4 + Claude + Gemini]
+  MQ --> CE[3. Citation Extract\nBrands + Sources]
+  CE --> GA[4. Gap Analysis\nHeat Map]
+  GA --> CB[5. Content Brief\nPrioritized]
+  CB --> RP[6. Reddit Posts\nvia Post Writer]
+  RP --> DI[7. Distribute\noverlap > 0.7]
+  DI --> RM[8. Re-measure\nCitation Lift]
+  RM -.->|iterate| SQ`,
+      impact: "15M organic views on Reddit in 4 weeks from a single account. 5,000-10,000 optimization targets generated per run at ~$15 in API costs. Deterministic 8-stage pipeline with Zod validation at every boundary.",
     },
   },
   {
@@ -160,6 +210,16 @@ export const projects: Project[] = [
         { metric: "Time to production", value: "2 days" },
       ],
       reflection: "",
+      architectureMermaid: `graph TD
+  PG[Page State] --> S1[Strategy 1\nDOM Selectors]
+  PG --> S2[Strategy 2\nA11y Tree]
+  PG --> S3[Strategy 3\nSingle Vision]
+  PG --> S4[Strategy 4\nMulti-Vision\n3 models vote]
+  PG --> S5[Strategy 5\nCouncil Mode\n6 models, 4/6 agree]
+  S1 & S2 & S3 & S4 & S5 --> EX[Execute Action]
+  EX --> VNC[Xvfb + VNC\nLive Dashboard]
+  VNC -->|WebSocket| FE[FastAPI\nReal-time Stream]`,
+      impact: "Went from prototype to HappyCapy production in 2 days. 5 execution strategies with council mode requiring multi-model consensus before destructive actions. Live VNC dashboard reveals failure modes invisible from logs alone.",
     },
   },
   {
@@ -181,6 +241,16 @@ export const projects: Project[] = [
         { metric: "Per-contact isolation", value: "Full" },
       ],
       reflection: "",
+      architectureMermaid: `graph TD
+        MSG[WhatsApp Message] --> IC[Intent Classifier\n8 categories]
+        IC --> CTX[Per-Contact Context\nIsolated memory per student]
+        CTX --> RAG[RAG Layer\nCourse materials + Q&A]
+        RAG --> LLM[OpenClaw Instance\n300MB total RAM]
+        LLM --> RES[Response Generator]
+        RES --> SP[Spaced Repetition\n24h + 72h check-ins]
+        SP -->|Proactive| MSG
+        RES -->|Reply| MSG`,
+      impact: "Delivered personalized AI tutoring to 500+ concurrent students on a 25K-subscriber EdTech channel at just 300MB total RAM. Per-contact isolation means every student gets their own context, learning history, and proactive spaced repetition -- without any cross-contamination.",
     },
   },
   {
@@ -202,6 +272,17 @@ export const projects: Project[] = [
         { metric: "Banned terms", value: "200+" },
       ],
       reflection: "",
+      architectureMermaid: `graph LR
+        SUB[Subreddit Scrape\nTop posts, 1 year] --> DRAFT[Raw Draft\nAuthentic voice first]
+        DRAFT --> COM[12-Persona Committee\nDerek, Keiko, Tyrone,\nLuna, Brad, Zara +6]
+        COM --> OBJ[Line-Level Objections]
+        OBJ --> RW[Rewrite Brief]
+        RW --> FINAL[Final Draft]
+        FINAL --> DET[AI Detection Pass\nMultiple classifiers]
+        DET -->|>25%| DRAFT
+        DET -->|<25%| PUB[Publish]
+        BAN[200+ Banned Terms] -.->|Hard filter\nevery phase| COM`,
+      impact: "Generated 25M+ organic views from a single Reddit account in 4 weeks. The 12-persona committee and 200+ banned term list keep AI detection confidence below 25% -- making this the only AI writing system that consistently survives Reddit's self-policing community.",
     },
   },
   {
@@ -223,6 +304,21 @@ export const projects: Project[] = [
         { metric: "Claude Code hooks", value: "3" },
       ],
       reflection: "",
+      architectureMermaid: `graph TD
+        TC[Tool Call] --> PRE[Pre-Tool Hook\nQuery 6 memory stores]
+        PRE --> EX[Execute Tool]
+        EX --> POST[Post-Tool Hook\nCapture outcome]
+        EX --> ERR[On-Error Hook\nExtract anti-pattern]
+        POST --> MS[(6 Memory Stores)]
+        ERR --> MS
+        MS --> AP[Anti-Patterns]
+        MS --> PR[Preferences]
+        MS --> PF[Project Facts]
+        MS --> TQ[Tool Quirks]
+        MS --> AD[Arch Decisions]
+        MS --> XS[Cross-Session]
+        AP & PR & PF & TQ & AD & XS -->|Monotonic\naccumulation| PRE`,
+      impact: "Powers the entire HappyCapy agent ecosystem as the meta-learning backbone. 8 anti-patterns captured organically on day 1 without any manual configuration. Knowledge only grows -- records are promoted but never deleted, so the system gets measurably smarter with every session.",
     },
   },
   {
@@ -244,6 +340,20 @@ export const projects: Project[] = [
         { metric: "Trust levels", value: "Advisor -> Assistant -> Delegate" },
       ],
       reflection: "",
+      architectureMermaid: `graph TD
+        EV[macOS Event Observers\nCalendar, Clipboard,\nApps, Filesystem] --> HB[Haiku Heartbeat\nPolls every 30s]
+        HB -->|Urgent| OPUS[Claude Opus\nAgent Loop]
+        HB -->|Routine| Q[Task Queue]
+        Q --> OPUS
+        OPUS --> BR[15+ Bridge Modules\nEmail, Calendar, Slack,\nBrowser, Terminal, Files...]
+        OPUS --> DB[(SQLite\nFTS5 + sqlite-vec)]
+        DB --> OPUS
+        OPUS --> TL{Trust Level}
+        TL -->|Advisor| SUG[Suggest Only]
+        TL -->|Assistant| REV[Execute Reversible]
+        TL -->|Delegate| IRR[Execute Irreversible]
+        CR[Cron Scheduler] --> OPUS`,
+      impact: "A true cognitive exoskeleton running 24/7 on macOS. Haiku heartbeat gating reduces Opus invocations by ~90% while keeping latency under 2 seconds. The trust-level system (Advisor to Delegate) lets the user incrementally hand off autonomy as confidence builds.",
     },
   },
   // ─── TIER 2 ───
@@ -266,6 +376,18 @@ export const projects: Project[] = [
         { metric: "Face distance improvement", value: "70%" },
       ],
       reflection: "",
+      architectureMermaid: `graph TD
+        REF[Reference Face Image] --> EMB[InsightFace\nEmbedding]
+        EMB --> COND[InstantID\nConditioning]
+        COND --> DIFF[Diffusion Model\nKeyframe Generation]
+        DIFF --> KF[Keyframes]
+        KF --> FILM[FILM Interpolation\nSmooth identity transitions]
+        FILM --> OUT[Final Video]
+        OUT --> VER{Face Verification\n0.6 cosine threshold}
+        VER -->|Pass| DONE[Output]
+        VER -->|Fail| COND
+        EXP[257 Experiments\nSystematic Grid] -.-> EMB & COND & FILM`,
+      impact: "Took face verification in multi-shot AI video from 5% baseline to 100% through 257 systematic experiments. The winning pipeline (InsightFace + InstantID + FILM interpolation) achieved 70% improvement in face distance metrics, making AI-generated narrative video viable for the first time.",
     },
   },
   {
@@ -287,6 +409,19 @@ export const projects: Project[] = [
         { metric: "Framework", value: "Aristotelian first-principles" },
       ],
       reflection: "",
+      architectureMermaid: `graph TD
+        A1[Axiom 1\nIndividually valid] --> CH{Compositional\nChaining}
+        A2[Axiom 2\nIndividually valid] --> CH
+        A3[Axiom 3\nIndividually valid] --> CH
+        A4[Axiom 4\nIndividually valid] --> CH
+        A5[Axiom 5\nIndividually valid] --> CH
+        A6[Axiom 6\nIndividually valid] --> CH
+        A7[Axiom 7\nIndividually valid] --> CH
+        CH --> PRESS[Alignment Pressure\nLogical not adversarial]
+        OPUS_ATK[Opus as Attacker\nConstructs axioms] --> A1 & A2 & A3 & A4 & A5 & A6 & A7
+        OPUS_DEF[Opus as Defender\nFinds logical gaps] --> CH
+        PRESS --> FIND[Boundary Conditions\nConsistency analysis]`,
+      impact: "Used Opus 4.6 to test Opus 4.6. The self-adversarial methodology -- where the model both constructs and attacks the argument chain -- revealed specific boundary conditions in ethical reasoning that no prompt-based jailbreak test would surface. Published as a formal evaluation methodology, not an exploit.",
     },
   },
   {
@@ -308,6 +443,18 @@ export const projects: Project[] = [
         { metric: "Import resolution", value: "100%" },
       ],
       reflection: "",
+      architectureMermaid: `graph LR
+        TASK[Task Description] --> CA[Contract\nAnalyzer]
+        CA --> IS[Input Schema]
+        CA --> OS[Output Schema]
+        CA --> ES[Error Schema]
+        CA --> CAP[Capability\nDeclaration]
+        IS & OS & ES & CAP --> VAL{Validate\nDesign + Runtime}
+        VAL --> AG1[Agent A]
+        AG1 -->|Typed contract| AG2[Agent B]
+        AG2 -->|Typed contract| AG3[Agent C]
+        VAL -->|Schema violation| FAIL[Early Failure\nNo propagation]`,
+      impact: "400+ controlled experiments proved 52.5% quality improvement over ad-hoc orchestration (t=13.685, p<0.001). 100% cross-module import resolution because agents can only call formally declared interfaces. One of the most statistically rigorous agent coordination results published.",
     },
   },
   {
@@ -329,6 +476,18 @@ export const projects: Project[] = [
         { metric: "Strategy dimensions", value: "5 (LHS sampled)" },
       ],
       reflection: "",
+      architectureMermaid: `graph TD
+        STR[Sales Strategy] --> LHS[Latin Hypercube\nSampling]
+        LHS --> D1[Objection Style\n5 types]
+        LHS --> D2[Decision Velocity\n3 types]
+        LHS --> D3[Info Preference\n4 types]
+        LHS --> D4[Relationship Weight\nTransactional to Trust]
+        LHS --> D5[Authority Level\n4 levels]
+        D1 & D2 & D3 & D4 & D5 --> BT[100 Buyer Twins\nParameterized agents]
+        BT --> SIM[Full Sales\nConversation Sim]
+        SIM --> SC[Score on 8 Dimensions\nClosure, discount, time,\nrelationship quality...]
+        SC --> WIN[Top Strategy\n78% win rate]`,
+      impact: "Sales teams can stress-test a new strategy against 100 synthetic buyer personas in 47.3 seconds -- before their first real conversation. Latin Hypercube Sampling covers the full parameter space with far fewer simulations than pure Monte Carlo, making the approach practical for real-time iteration.",
     },
   },
   {
@@ -350,6 +509,19 @@ export const projects: Project[] = [
         { metric: "Sequential baseline", value: "120 min" },
       ],
       reflection: "",
+      architectureMermaid: `graph TD
+        TOPIC[Topic Brief] --> CO[Content Object\nCore argument, evidence,\ntone, audience, stats]
+        CO --> B[Blog Agent\n1500-2500 words]
+        CO --> LI[LinkedIn Agent\n10-slide carousel]
+        CO --> TW[Twitter Agent\n12-15 tweets]
+        CO --> POD[Podcast Agent\n20-min script]
+        CO --> YT[YouTube Agent\nScript + b-roll]
+        CO --> SL[Slides Agent\n15 Marp slides]
+        CO --> IG[Instagram Agent\nCaption + hashtags]
+        CO --> NL[Newsletter Agent\n600-800 words]
+        CO --> SH[Short Video Agent\n5 hook variants]
+        B & LI & TW & POD & YT & SL & IG & NL & SH -->|Parallel| OUT[9 Consistent Outputs]`,
+      impact: "Reduced multi-format content production from 120 minutes (sequential) to 25 minutes (parallel) while maintaining consistent messaging across all 9 outputs. Every format agent derives from the same content object, eliminating the inconsistency that plagues manual cross-format repurposing.",
     },
   },
   {
@@ -371,6 +543,16 @@ export const projects: Project[] = [
         { metric: "Attack categories defended", value: "8" },
       ],
       reflection: "",
+      architectureMermaid: `graph TD
+        IN[User Input] --> PIC[Prompt Injection\nClassifier\n8 attack categories]
+        PIC -->|Clean| TE[22 Tool Engines]
+        PIC -->|Threat| QR[Quarantine + Flag]
+        TE --> ENC[AES-256-GCM\nField-level encryption\nUnique nonce per record]
+        ENC --> DB[(90 SQLite Tables\nEncrypted at rest)]
+        DB --> DEC[Decrypt on client\nServer never sees plaintext]
+        DEC --> TE
+        KEY[User Passphrase] --> ARG[Argon2id\n3 iter, 64MB] --> ENC`,
+      impact: "22 tool engines across productivity, communication, finance, and developer tools -- all protected by end-to-end encryption where the server never sees plaintext. The prompt injection classifier catches 8 attack categories including Unicode homoglyph substitution and multi-turn accumulation attacks.",
     },
   },
   {
@@ -392,6 +574,16 @@ export const projects: Project[] = [
         { metric: "Coordination modes", value: "3 (parallel / pipeline / tight)" },
       ],
       reflection: "",
+      architectureMermaid: `graph TD
+        TASK[Task Description] --> CS[Coupling Score\nModel trained on\n1,247 projects]
+        CS -->|<0.3| PAR[Parallel-Independent\nDisjoint subtasks]
+        CS -->|0.3-0.7| PIPE[Pipeline\nExplicit handoff contracts]
+        CS -->|>0.7| TIGHT[Tight-Coupling\nShared state + sync]
+        PAR & PIPE & TIGHT --> ROLES[Auto-Generate\nAgent Roles]
+        ROLES --> CONTRACTS[Contract-First\nProtocol]
+        CONTRACTS --> LAUNCH[Launch Swarm]
+        LAUNCH --> DASH[Live Dashboard\nStatus + Errors]`,
+      impact: "Meta-orchestrator that turns any task description into an optimal agent swarm automatically. 87-94% success rate across the benchmark suite, with the coupling score model trained on 1,247 real projects eliminating the need for expert knowledge in swarm design.",
     },
   },
   {
@@ -413,6 +605,15 @@ export const projects: Project[] = [
         { metric: "Architecture", value: "Bio-inspired cognitive" },
       ],
       reflection: "",
+      architectureMermaid: `graph TD
+        IN[Input] --> P1[Phase 1: Cortical Processing\n2 best-fit models\nindependent responses]
+        P1 --> P2[Phase 2: Split-Brain\nStructured debate\nRevised positions]
+        P2 --> P3[Phase 3: Dreaming\n3rd model generates\n5 associative variants]
+        P3 --> P4[Phase 4: Evolutionary Breeding\nGenetic recombination\n3 candidates scored]
+        P4 --> P5[Phase 5: Immune Maturation\n3-model adversarial panel\nStress-test winner]
+        P5 --> OUT[Final Output\nSurvived all 5 phases]
+        ROUTE[Capability\nRouting Matrix] -.-> P1`,
+      impact: "A 5-phase cognitive pipeline where 6 models collaborate through neuroscience-inspired stages -- from cortical processing to immune maturation. Outputs show measurably higher complexity, accuracy, and creative novelty than any single model alone on the benchmark suite.",
     },
   },
   // ─── TIER 3 ───
