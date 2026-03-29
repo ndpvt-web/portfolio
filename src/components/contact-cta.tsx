@@ -44,6 +44,7 @@ export default function ContactCta() {
           <span className="font-mono text-[var(--text-primary)]">{EMAIL}</span>
           <button
             onClick={handleCopy}
+            aria-label={copied ? "Email address copied" : "Copy email address"}
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-[var(--bg-border)] font-mono text-sm text-[var(--text-secondary)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
           >
             {copied ? (

@@ -1,0 +1,10 @@
+{
+  "nav": { "home": "Home", "projects": "Projects", "about": "About", "contact": "Contact" },
+  "hero": { "title": "Nivesh Dandyan", "subtitle": "AI Agent Architect", "tagline": "Building self-evolving AI systems for complex workflows." },
+  "stats": { "users": "Users shipped to", "views": "Organic views", "weeks": "Weeks to 15M views", "solo": "Solo-shipped products" },
+  "projects": { "title": "Projects", "search_placeholder": "Search by name, tag, or category...", "no_results": "No projects match", "featured": "Featured", "notable": "Notable", "more": "More Projects" },
+  "about": { "heading": "I architect AI agent systems.", "available": "Available for consulting." },
+  "contact": { "heading": "Let's build something.", "cta": "Copy email", "copied": "Copied!" },
+  "footer": { "copyright": "Nivesh Dandyan" },
+  "meta": { "locale_name": "English", "locale_flag": "EN" }
+}

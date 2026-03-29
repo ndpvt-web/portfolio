@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ThemeProvider from "@/components/theme-provider";
+import { I18nProvider } from "@/lib/i18n";
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
 import { BootSequence } from "@/components/boot-sequence";
 import CursorGlow from "@/components/cursor-glow";
+import Konami from "@/components/konami";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,6 +20,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://portfolio.vercel.app'),
   title: {
     default: "Nivesh Dandyan | AI Agent Architect",
     template: "%s | Nivesh Dandyan",
@@ -56,6 +59,8 @@ export const metadata: Metadata = {
 
 const themeScript = `(function(){var m=localStorage.getItem('theme-mode')||'dark';var a=localStorage.getItem('theme-accent')||'orange';document.documentElement.setAttribute('data-theme',m);document.documentElement.setAttribute('data-accent',a);})()`;
 
+const localeScript = `(function(){var l=localStorage.getItem('locale')||'en';document.documentElement.setAttribute('lang',l==='zh-TW'?'zh-TW':'en');})()`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -68,14 +73,18 @@ export default function RootLayout({
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script dangerouslySetInnerHTML={{ __html: localeScript }} />
       </head>
       <body className="min-h-screen antialiased">
         <ThemeProvider>
-          <BootSequence />
-          <Nav />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <CursorGlow />
+          <I18nProvider>
+            <BootSequence />
+            <Nav />
+            <main className="flex-1">{children}</main>
+            <Footer />
+            <CursorGlow />
+            <Konami />
+          </I18nProvider>
         </ThemeProvider>
       </body>
     </html>
