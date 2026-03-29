@@ -39,6 +39,7 @@ export default function SearchBar({ value, onChange, placeholder = "Search proje
         defaultValue={value}
         onChange={handleChange}
         placeholder={placeholder}
+        aria-label="Search projects"
         className={[
           "w-full font-mono text-sm",
           "bg-[var(--bg-surface)] border border-[var(--bg-border)] rounded-lg",
