@@ -87,13 +87,14 @@ export default function FeaturedIn() {
                 </span>
               </div>
 
-              {/* Image */}
-              <div className="relative bg-[var(--bg-elevated)] aspect-video border-b border-[var(--bg-border)] overflow-hidden">
+              {/* Image - show full, no crop */}
+              <div className="relative bg-[var(--bg-elevated)] border-b border-[var(--bg-border)]">
                 <Image
                   src={card.imagePath}
                   alt={card.caption}
-                  fill
-                  className="object-cover object-top"
+                  width={600}
+                  height={800}
+                  className="w-full h-auto"
                   sizes="(max-width: 768px) 100vw, 25vw"
                 />
               </div>

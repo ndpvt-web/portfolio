@@ -27,15 +27,8 @@ function HeroCard({ project, className }: { project: Project; className?: string
           "hover:shadow-[0_0_24px_rgba(var(--accent-rgb,249,115,22),0.15)]"
         )}
       >
-        {/* Screenshot placeholder */}
-        <div className="rounded-lg bg-[var(--bg-code)] border border-[var(--bg-border)] aspect-video flex items-center justify-center">
-          <span className="font-mono text-[var(--text-tertiary)]" style={{ fontSize: "var(--text-caption)" }}>
-            {project.screenshots[0] ? project.name : "[ preview ]"}
-          </span>
-        </div>
-
         <div className="flex flex-col gap-2 flex-1">
-          <h3 className="font-semibold text-[var(--text-primary)]" style={{ fontSize: "var(--text-heading)" }}>
+          <h3 className="font-bold text-[var(--text-primary)]" style={{ fontSize: "var(--text-title)" }}>
             {project.name}
           </h3>
           <p className="text-[var(--text-secondary)]" style={{ fontSize: "var(--text-body)" }}>
@@ -49,6 +42,19 @@ function HeroCard({ project, className }: { project: Project; className?: string
               {project.keyMetric.label}
             </span>
           </div>
+          {project.github.length > 0 && (
+            <div className="flex gap-2 flex-wrap pt-1">
+              {project.github.map((g) => (
+                <span
+                  key={g.repo}
+                  className="font-mono text-xs text-[var(--text-tertiary)] hover:text-[var(--accent)] transition-colors"
+                  onClick={(e) => { e.preventDefault(); window.open(`https://github.com/${g.owner}/${g.repo}`, '_blank'); }}
+                >
+                  ↗ {g.repo}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
       </Link>
     </motion.div>
@@ -70,13 +76,8 @@ function NotableCard({ project, className }: { project: Project; className?: str
           "hover:border-[var(--accent)] transition-colors duration-200"
         )}
       >
-        <div className="rounded-md bg-[var(--bg-code)] border border-[var(--bg-border)] aspect-video flex items-center justify-center">
-          <span className="font-mono text-[var(--text-tertiary)]" style={{ fontSize: "var(--text-caption)" }}>
-            {project.screenshots[0] ?? "[ preview ]"}
-          </span>
-        </div>
         <div className="flex flex-col gap-1.5 flex-1">
-          <h3 className="font-semibold text-[var(--text-primary)] text-base">{project.name}</h3>
+          <h3 className="font-bold text-[var(--text-primary)]" style={{ fontSize: "var(--text-heading)" }}>{project.name}</h3>
           <p className="text-[var(--text-secondary)] text-sm line-clamp-2">{project.tagline}</p>
           <div className="mt-auto pt-1">
             <span className="font-mono text-[var(--accent)] font-semibold">
@@ -86,6 +87,19 @@ function NotableCard({ project, className }: { project: Project; className?: str
               {project.keyMetric.label}
             </span>
           </div>
+          {project.github.length > 0 && (
+            <div className="flex gap-2 flex-wrap pt-1">
+              {project.github.map((g) => (
+                <span
+                  key={g.repo}
+                  className="font-mono text-xs text-[var(--text-tertiary)] hover:text-[var(--accent)] transition-colors"
+                  onClick={(e) => { e.preventDefault(); window.open(`https://github.com/${g.owner}/${g.repo}`, '_blank'); }}
+                >
+                  ↗ {g.repo}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
       </Link>
     </motion.div>
