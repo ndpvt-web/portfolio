@@ -82,12 +82,6 @@ export default function AboutPage() {
               style={{ fontSize: "var(--text-body)", lineHeight: 1.7 }}
             >
               <p>
-                I believe in Aristotelian first-principles reasoning -- every
-                claim must trace to a source file, experiment result, or deployed
-                metric. I use formal axiom systems to reduce hallucination and
-                mathematically verify conclusions given by LLM models.
-              </p>
-              <p>
                 Currently at HappyCapy (raised $10M, $1M ARR in 15 days) where I
                 shipped Mac Bridge and Browser Agent to 50K+ users -- both solo.
                 Drove 15M organic views on Reddit in 4 weeks for growth hacking.
