@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import type { Project } from "@/data/projects";
 import Section from "@/components/section";
@@ -149,6 +150,42 @@ export default function CaseStudyLayout({
           <TerminalBlock lines={approachLines} showDots />
         </motion.div>
       </Section>
+
+      {/* ── SCREENSHOTS ── */}
+      {project.screenshots.length > 0 && (
+        <Section variant="mid">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+          >
+            <p
+              className="font-mono text-[var(--text-tertiary)] mb-6"
+              style={{ fontSize: "var(--text-caption)" }}
+            >
+              SCREENSHOTS
+            </p>
+            <div className="flex flex-col gap-6">
+              {project.screenshots.map((src) => (
+                <div
+                  key={src}
+                  className="rounded-xl border border-[var(--bg-border)] overflow-hidden bg-[var(--bg-code)]"
+                >
+                  <Image
+                    src={src}
+                    alt={`${project.name} screenshot`}
+                    width={1200}
+                    height={800}
+                    className="w-full h-auto"
+                    sizes="(max-width: 768px) 100vw, 80vw"
+                  />
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </Section>
+      )}
 
       {/* ── TECH / CATEGORIES ── */}
       <Section variant="dark">
