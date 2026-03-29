@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Section from "@/components/section";
 import FeaturedIn from "@/components/featured-in";
 import ContactCta from "@/components/contact-cta";
@@ -45,20 +46,22 @@ export default function AboutPage() {
       {/* Hero section with photo slot */}
       <Section variant="dark">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-          {/* Photo slot */}
-          <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-[var(--bg-code)] border border-[var(--bg-border)] flex items-center justify-center">
+          {/* Photo */}
+          <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-[var(--bg-code)] border border-[var(--bg-border)]">
             {/* Traffic light dots */}
             <div className="absolute top-4 left-4 flex gap-1.5 z-10">
               <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
               <span className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
               <span className="w-3 h-3 rounded-full bg-[#28c840]" />
             </div>
-            <span
-              className="font-mono text-[var(--text-tertiary)]"
-              style={{ fontSize: "var(--text-caption)" }}
-            >
-              [ About photo ]
-            </span>
+            <Image
+              src="/images/nivesh-speaking.jpg"
+              alt="Nivesh Dandyan speaking at HappyCapy Hong Kong launch event"
+              fill
+              className="object-cover object-top"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority
+            />
           </div>
 
           {/* About text */}

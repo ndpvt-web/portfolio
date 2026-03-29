@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 interface FeatureCard {
@@ -16,21 +17,28 @@ const FEATURES: FeatureCard[] = [
     caption: "HappyCapy Hong Kong Launch -- Guest Speaker",
     quote: "Demoed live AI agent systems to founders, investors, and the Hong Kong tech community.",
     stats: "29 reactions, 8 reposts",
-    imagePath: "/screenshots/image1-linkedin-speaking.png",
+    imagePath: "/images/linkedin-capybar-launch.png",
   },
   {
     source: "X (Twitter)",
     caption: "The crowd couldn't handle it -- HappyCapy X",
     quote: "The room went quiet when the agent started controlling the screen autonomously.",
     stats: "558 views, 11 likes",
-    imagePath: "/screenshots/image2-x-crowd.png",
+    imagePath: "/images/x-happycapy-crowd.png",
   },
   {
     source: "Xiaohongshu",
-    caption: "Agent Skills demo -- Xiaohongshu feature",
+    caption: "Agent Skills demo -- viral feature",
     quote: "Featured for demonstrating practical AI agent skills to a Chinese-speaking audience.",
-    stats: "12 likes, 8 shares",
-    imagePath: "/screenshots/image1-xiaohongshu-speaking.png",
+    stats: "12 likes, 17 shares",
+    imagePath: "/images/xiaohongshu-speaking.png",
+  },
+  {
+    source: "LinkedIn",
+    caption: "Reddit Growth Skill -- viral post by HappyCapy",
+    quote: "Built a skill that optimizes posts for Reddit virality. Every draft reviewed by 12 AI agents.",
+    stats: "29 reactions, reposted by Nivesh",
+    imagePath: "/images/linkedin-reddit-skill.png",
   },
 ];
 
@@ -58,7 +66,7 @@ export default function FeaturedIn() {
           Featured In
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {FEATURES.map((card, i) => (
             <motion.div
               key={card.source}
@@ -79,9 +87,15 @@ export default function FeaturedIn() {
                 </span>
               </div>
 
-              {/* Image area */}
-              <div className="bg-[var(--bg-elevated)] aspect-video flex items-center justify-center border-b border-[var(--bg-border)]">
-                <span className="font-mono text-[var(--text-tertiary)] text-xs">[ {card.source} ]</span>
+              {/* Image */}
+              <div className="relative bg-[var(--bg-elevated)] aspect-video border-b border-[var(--bg-border)] overflow-hidden">
+                <Image
+                  src={card.imagePath}
+                  alt={card.caption}
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                />
               </div>
 
               {/* Content */}
