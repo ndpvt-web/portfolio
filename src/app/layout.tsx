@@ -18,9 +18,40 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nivesh Dandyan | Portfolio",
+  title: {
+    default: "Nivesh Dandyan | AI Agent Architect",
+    template: "%s | Nivesh Dandyan",
+  },
   description:
-    "AI Agent Architect. Building self-evolving AI systems for complex workflows.",
+    "AI Agent Architect. Building self-evolving AI systems for complex workflows. Shipped to 50K+ users. 25M+ organic views.",
+  keywords: [
+    "Nivesh Dandyan",
+    "AI agent architect",
+    "multi-agent systems",
+    "self-evolving AI",
+    "computer-use agent",
+    "HappyCapy",
+    "portfolio",
+  ],
+  authors: [{ name: "Nivesh Dandyan" }],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "Nivesh Dandyan",
+    title: "Nivesh Dandyan | AI Agent Architect",
+    description:
+      "Building self-evolving AI systems for complex workflows. Shipped to 50K+ users.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nivesh Dandyan | AI Agent Architect",
+    description:
+      "Building self-evolving AI systems for complex workflows.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 const themeScript = `(function(){var m=localStorage.getItem('theme-mode')||'dark';var a=localStorage.getItem('theme-accent')||'orange';document.documentElement.setAttribute('data-theme',m);document.documentElement.setAttribute('data-accent',a);})()`;
