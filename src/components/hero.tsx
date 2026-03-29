@@ -71,33 +71,9 @@ export default function Hero() {
           AI Agent Architect
         </motion.p>
 
-        {/* Headline */}
-        <motion.h1
-          custom={0.3}
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          className="text-[var(--text-primary)] font-bold tracking-tight"
-          style={{ fontSize: "var(--text-hero)", letterSpacing: "-0.03em" }}
-        >
-          Building self-evolving AI systems for complex workflows.
-        </motion.h1>
-
-        {/* Vision subtitle */}
-        <motion.p
-          custom={0.4}
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          className="text-[var(--text-tertiary)] italic max-w-[600px]"
-          style={{ fontSize: "var(--text-body)" }}
-        >
-          Productionised self-evolving, self-learning computer-use agentic systems for complex workflows.
-        </motion.p>
-
         {/* CTA buttons */}
         <motion.div
-          custom={0.5}
+          custom={0.3}
           initial="hidden"
           animate="visible"
           variants={fadeUp}

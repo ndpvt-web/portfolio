@@ -1,27 +1,14 @@
 import Image from "next/image";
 import Hero from "@/components/hero";
-import StatsBar from "@/components/stats-bar";
 import FeaturedIn from "@/components/featured-in";
 import CurrentlyWorkingOn from "@/components/currently-working-on";
 import ContactCta from "@/components/contact-cta";
 import Section from "@/components/section";
 
-const MILESTONES = [
-  { title: "HKU", description: "100% scholarship", current: false },
-  { title: "Growth Hacking", description: "15M organic views on Reddit in 4 weeks, single account", current: false },
-  { title: "HappyCapy Security", description: "Found and fixed sandbox security issues via prompt injection testing", current: false },
-  { title: "Shipped to 50K+ Users", description: "Mac Bridge + Browser Agent -- solo", current: false },
-  { title: "Guest Speaker", description: "HappyCapy Hong Kong launch event", current: false },
-  { title: "Currently", description: "Self-evolving computer-use agent (testing phase)", current: true },
-];
-
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <Section variant="mid">
-        <StatsBar />
-      </Section>
 
       {/* About */}
       <Section variant="dark">
@@ -52,12 +39,25 @@ export default function HomePage() {
 
             <div className="flex flex-col gap-4 text-[var(--text-secondary)]" style={{ fontSize: "var(--text-body)", lineHeight: 1.7 }}>
               <p>
-                Currently at HappyCapy (raised $10M, $1M ARR in 15 days) where I
-                shipped Mac Bridge and Browser Agent to 50K+ users -- both solo.
-                Drove 15M organic views on Reddit in 4 weeks for growth hacking.
-                Served as guest speaker at the Hong Kong launch event.
+                Currently at <strong className="text-[var(--text-primary)]">HappyCapy</strong> (raised
+                $10M, hit $1M ARR in 15 days) where I single-handedly shipped two flagship
+                products -- <strong className="text-[var(--text-primary)]">Mac Bridge</strong> and{" "}
+                <strong className="text-[var(--text-primary)]">Browser Agent</strong> -- now
+                serving <strong className="text-[var(--text-primary)]">50,000+ users</strong>.
               </p>
-              <p>Studying at HKU on 100% scholarship.</p>
+              <p>
+                On the growth side, I drove <strong className="text-[var(--text-primary)]">15M organic
+                views on Reddit in 4 weeks</strong> from a single account. Identified and patched
+                critical sandbox security vulnerabilities through prompt injection testing before
+                they reached production. Served as <strong className="text-[var(--text-primary)]">guest
+                speaker at the HappyCapy Hong Kong launch</strong>, demoing live AI agent systems
+                to founders, investors, and the local tech community.
+              </p>
+              <p>
+                Studying at <strong className="text-[var(--text-primary)]">HKU on a 100%
+                scholarship</strong>. Currently building a self-evolving computer-use agent
+                that learns from its own mistakes -- in testing phase now.
+              </p>
               <p className="font-mono text-[var(--accent)]" style={{ fontSize: "var(--text-small)" }}>
                 Available for consulting.
               </p>
@@ -81,32 +81,14 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Milestones */}
+      {/* Tagline divider */}
       <Section variant="mid">
-        <h2
-          className="font-semibold text-[var(--text-primary)] mb-8"
-          style={{ fontFamily: "var(--font-display)", fontSize: "var(--text-title)" }}
+        <p
+          className="font-bold text-[var(--text-primary)] text-center whitespace-nowrap"
+          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.25rem, 2.5vw, 2rem)", letterSpacing: "-0.02em" }}
         >
-          Milestones
-        </h2>
-        <ol className="flex flex-col gap-4">
-          {MILESTONES.map((m) => (
-            <li key={m.title} className="flex items-baseline gap-4 group">
-              <span
-                className={`font-mono font-semibold shrink-0 ${m.current ? "text-[var(--accent)]" : "text-[var(--text-primary)]"}`}
-                style={{ fontSize: "var(--text-small)", minWidth: "10rem" }}
-              >
-                {m.current && (
-                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse mr-2 align-middle" />
-                )}
-                {m.title}
-              </span>
-              <span className="text-[var(--text-secondary)]" style={{ fontSize: "var(--text-body)" }}>
-                {m.description}
-              </span>
-            </li>
-          ))}
-        </ol>
+          Building self-evolving AI systems for complex workflows.
+        </p>
       </Section>
 
       <Section variant="dark">
