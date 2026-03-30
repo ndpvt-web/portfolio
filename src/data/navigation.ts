@@ -12,7 +12,6 @@ export interface SocialLink {
 
 export const NAV_ITEMS: NavItem[] = [
   { label: "Projects", href: "/projects" },
-  { label: "Resume", href: "/resume.pdf", external: true },
   { label: "GitHub", href: "https://github.com/ndpvt-web", external: true },
   { label: "Contact", href: "#contact" },
 ];
