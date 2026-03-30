@@ -1,9 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect, useCallback, useRef, type ReactNode } from "react";
 
 interface Milestone {
   highlight: ReactNode;
+  logo?: string;
   desc: ReactNode;
   link?: { href: string; label: string };
 }
@@ -19,6 +21,7 @@ const milestones: Milestone[] = [
   },
   {
     highlight: "Anthropic",
+    logo: "/images/anthropic-logo.svg",
     desc: (
       <>
         I connected Claude Code to my desktop and used it for computer use.
@@ -29,6 +32,7 @@ const milestones: Milestone[] = [
   },
   {
     highlight: "Manus AI",
+    logo: "/images/manus-logo.svg",
     desc: (
       <>
         I automated iOS app builds by connecting Xcode to Claude Code through my Mac.
@@ -153,18 +157,29 @@ export default function AboutCards() {
           </span>
 
           {/* Highlight */}
-          <p
-            className="text-center text-[var(--accent)]"
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "clamp(2rem, 4.5vw, 3.5rem)",
-              fontWeight: 800,
-              lineHeight: 1.1,
-              letterSpacing: "-0.04em",
-            }}
-          >
-            {m.highlight}
-          </p>
+          {m.logo ? (
+            <Image
+              src={m.logo}
+              alt={String(m.highlight)}
+              width={200}
+              height={48}
+              className="h-12 w-auto brightness-0 invert opacity-90"
+              style={{ filter: "brightness(0) invert(1)" }}
+            />
+          ) : (
+            <p
+              className="text-center text-[var(--accent)]"
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "clamp(2rem, 4.5vw, 3.5rem)",
+                fontWeight: 800,
+                lineHeight: 1.1,
+                letterSpacing: "-0.04em",
+              }}
+            >
+              {m.highlight}
+            </p>
+          )}
 
           {/* Description */}
           <p

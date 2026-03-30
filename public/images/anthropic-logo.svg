@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 32" fill="none">
+  <path d="M10.5 4L0 28h5.8l2.1-5h10.2l2.1 5H26L15.5 4h-5zm2.5 7.2l3.5 8.3H9.5l3.5-8.3z" fill="currentColor"/>
+  <path d="M30 4v24h5V17.5L44.5 28h3L57 17.5V28h5V4h-5.5L47 17.5 37.5 4H30z" fill="currentColor"/>
+  <path d="M68 8.5V4h18v4.5h-6V28h-5.5V8.5H68z" fill="currentColor"/>
+  <path d="M92 4v24h5.5V18h10V28H113V4h-5.5v9.5h-10V4H92z" fill="currentColor"/>
+  <path d="M120 4v24h5.5V18h5l4.5 10h6l-5-10.8c2.8-1.3 4.5-3.8 4.5-7.2 0-5-3.5-6-8-6h-12.5zm5.5 4.5h6c2 0 3 1 3 2.8s-1 2.8-3 2.8h-6V8.5z" fill="currentColor"/>
+  <path d="M147 16c0-7.5 5-12.5 12-12.5S171 8.5 171 16s-5 12.5-12 12.5S147 23.5 147 16zm18.5 0c0-5-2.7-8-6.5-8s-6.5 3-6.5 8 2.7 8 6.5 8 6.5-3 6.5-8z" fill="currentColor"/>
+  <path d="M177 4v24h5.5V18h5.5c4.5 0 8-2 8-7s-3.5-7-8-7h-11zm5.5 4.5h4.5c2 0 3 1 3 2.5s-1 2.5-3 2.5h-4.5V8.5z" fill="currentColor"/>
+</svg>
