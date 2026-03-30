@@ -149,7 +149,10 @@ export default function Hero() {
 
             <div className="flex flex-col">
               <MilestoneRow accent="Atlas">
-                <strong className="text-[var(--text-primary)]">World&apos;s first desktop agent</strong> that learns from its own mistakes. No fine-tuning. Every session it gets smarter.
+                <strong className="text-[var(--text-primary)]">World&apos;s first desktop agent</strong> that learns from its own mistakes. No fine-tuning. Every session it gets smarter.{" "}
+                <a href="https://github.com/ndpvt-web/atlas" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] hover:underline">
+                  GitHub ↗
+                </a>
               </MilestoneRow>
 
               <MilestoneRow accent="514 rules">
