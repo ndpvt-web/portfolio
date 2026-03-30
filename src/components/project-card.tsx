@@ -110,34 +110,35 @@ function CompactCard({ project, className }: { project: Project; className?: str
   const githubUrl = project.github[0]
     ? `https://github.com/${project.github[0].owner}/${project.github[0].repo}`
     : `/projects/${project.slug}`;
+  const isExternal = project.github.length > 0;
 
   return (
-    <motion.div
-      whileHover={{ backgroundColor: "var(--bg-elevated)" }}
-      transition={{ duration: 0.15 }}
-      className={cn(
-        "group flex items-center justify-between gap-4",
-        "px-4 py-3 rounded-lg border border-transparent",
-        "hover:border-[var(--bg-border)] transition-colors",
-        className
-      )}
+    <Link
+      href={githubUrl}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
+      className={cn("block", className)}
     >
-      <div className="flex flex-col gap-0.5 min-w-0">
-        <span className="font-semibold text-[var(--text-primary)] text-sm truncate">{project.name}</span>
-        <span className="text-[var(--text-tertiary)] text-xs truncate">{project.tagline}</span>
-      </div>
-      <Link
-        href={githubUrl}
-        target={project.github[0] ? "_blank" : undefined}
-        rel={project.github[0] ? "noopener noreferrer" : undefined}
-        className="shrink-0 text-[var(--text-tertiary)] hover:text-[var(--accent)] transition-colors"
-        aria-label={`View ${project.name}`}
+      <motion.div
+        whileHover={{ backgroundColor: "var(--bg-elevated)" }}
+        transition={{ duration: 0.15 }}
+        className={cn(
+          "group flex items-center justify-between gap-4",
+          "px-4 py-3 rounded-lg border border-transparent",
+          "hover:border-[var(--bg-border)] transition-colors"
+        )}
       >
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M5 12h14M12 5l7 7-7 7" />
-        </svg>
-      </Link>
-    </motion.div>
+        <div className="flex flex-col gap-0.5 min-w-0">
+          <span className="font-semibold text-[var(--text-primary)] text-sm truncate">{project.name}</span>
+          <span className="text-[var(--text-tertiary)] text-xs truncate">{project.tagline}</span>
+        </div>
+        <span className="shrink-0 text-[var(--text-tertiary)] group-hover:text-[var(--accent)] transition-colors">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </span>
+      </motion.div>
+    </Link>
   );
 }
 
