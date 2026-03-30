@@ -4,7 +4,6 @@ import FeaturedIn from "@/components/featured-in";
 import CurrentlyWorkingOn from "@/components/currently-working-on";
 import ContactCta from "@/components/contact-cta";
 import Section from "@/components/section";
-import AboutAccordion from "@/components/about-accordion";
 
 export default function HomePage() {
   return (
@@ -38,7 +37,51 @@ export default function HomePage() {
               I architect AI agent systems.
             </h2>
 
-            <AboutAccordion />
+            <div className="flex flex-col gap-4 text-[var(--text-secondary)]" style={{ fontSize: "var(--text-body)", lineHeight: 1.7 }}>
+              <p>
+                Spent <strong className="text-[var(--text-primary)]">$20,000 on Claude Code API in 40 days</strong>.
+              </p>
+              <p>
+                Built the <strong className="text-[var(--text-primary)]">Mac Bridge</strong> and{" "}
+                <strong className="text-[var(--text-primary)]">Browser Agent</strong> for{" "}
+                <strong className="text-[var(--text-primary)]">HappyCapy AI</strong> ($10M raised).
+                Shipped to <strong className="text-[var(--text-primary)]">50,000+ users</strong>.
+              </p>
+              <p>
+                I connected Claude Code to my desktop and used it for computer use &mdash;{" "}
+                <strong className="text-[var(--text-primary)]">Anthropic released that as a feature 2 weeks later</strong>.
+                I automated iOS app builds by connecting Xcode to Claude Code through my Mac &mdash;{" "}
+                <strong className="text-[var(--text-primary)]">Manus AI released that as their feature 4 days later</strong>.
+              </p>
+              <p>
+                Ran HappyCapy&apos;s global product launch marketing. Built a system that
+                reverse-engineers how ChatGPT and Perplexity decide what to recommend, then
+                got us into those recommendations.{" "}
+                <strong className="text-[var(--text-primary)]">15 million views on Reddit in 4 weeks</strong>. Organic. No ads.
+              </p>
+              <p>
+                <strong className="text-[var(--text-primary)]">Guest speaker at HappyCapy&apos;s Hong Kong launch</strong>.{" "}
+                <strong className="text-[var(--text-primary)]">$100M+ valued startup</strong>, 200+ people &mdash; VCs, investors, builders.
+              </p>
+              <p>
+                Built an <strong className="text-[var(--text-primary)]">AI agency that runs completely on its own</strong>.
+                8 agents, 24/7. Find businesses without websites, build sites, send outreach, close deals.
+                No human in the loop. <strong className="text-[var(--text-primary)]">24% conversion rate</strong>.
+              </p>
+              <p>
+                Testing <strong className="text-[var(--text-primary)]">Atlas</strong> right now &mdash;
+                world&apos;s first desktop agent that learns from its own mistakes without changing the
+                model weights or fine tuning. Every session it gets smarter.
+              </p>
+              <p>
+                Built a <strong className="text-[var(--text-primary)]">self-learning layer on Claude Code</strong>.
+                Hooks into every action, catches every mistake, never repeats it.{" "}
+                <strong className="text-[var(--text-primary)]">514 rules learned on its own</strong> in just a few days of use.
+              </p>
+              <p>
+                Studying at <strong className="text-[var(--text-primary)]">HKU on a 100% scholarship</strong>.
+              </p>
+            </div>
 
             <p className="font-mono text-[var(--accent)]" style={{ fontSize: "var(--text-small)" }}>
               Available for consulting.
