@@ -40,7 +40,7 @@ export default function Hero() {
           {/* Left: Photo + Name + Info */}
           <motion.div custom={0} initial="hidden" animate="visible" variants={fadeUp} className="flex flex-col gap-6">
             {/* Photo */}
-            <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden bg-[var(--bg-code)] border border-[var(--bg-border)]">
+            <div className="relative w-full aspect-[3/4] max-h-[420px] rounded-xl overflow-hidden bg-[var(--bg-code)] border border-[var(--bg-border)]">
               <div className="absolute top-3 left-3 flex gap-1.5 z-10">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
                 <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
@@ -50,8 +50,7 @@ export default function Hero() {
                 src="/images/nivesh-speaking.jpg"
                 alt="Nivesh Dandyan speaking at HappyCapy Hong Kong launch event"
                 fill
-                className="object-cover"
-                style={{ objectPosition: "center 20%" }}
+                className="object-cover object-center"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 priority
               />
