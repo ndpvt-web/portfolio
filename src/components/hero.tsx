@@ -148,6 +148,17 @@ export default function Hero() {
             </h2>
 
             <div className="flex flex-col">
+              <MilestoneRow accent="Atlas">
+                <strong className="text-[var(--text-primary)]">World&apos;s first desktop agent</strong> that learns from its own mistakes. No fine-tuning. Every session it gets smarter.
+              </MilestoneRow>
+
+              <MilestoneRow accent="514 rules">
+                <strong className="text-[var(--text-primary)]">Self-learning Claude Code</strong> layer. Hooks into every action, catches every mistake, never repeats it.{" "}
+                <a href="https://github.com/ndpvt-web" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] hover:underline">
+                  GitHub ↗
+                </a>
+              </MilestoneRow>
+
               <MilestoneRow accent="$20,000">
                 Spent on Claude Code API in 40 days.
               </MilestoneRow>
@@ -168,23 +179,12 @@ export default function Hero() {
                 On Reddit in 4 weeks. Organic. No ads. Built a system that reverse-engineers how ChatGPT and Perplexity decide what to recommend.
               </MilestoneRow>
 
-              <MilestoneRow accent="Speaker">
+              <MilestoneRow accent="Guest Speaker">
                 HappyCapy&apos;s Hong Kong launch. $100M+ valued startup, 200+ people — VCs, investors, builders.
               </MilestoneRow>
 
               <MilestoneRow accent="AI Agency">
                 Fully automated. No human in the loop. 8 agents, 24/7 — find leads, build sites, outreach, close deals. 24% conversion.
-              </MilestoneRow>
-
-              <MilestoneRow accent="Atlas">
-                World&apos;s first desktop agent that learns from its own mistakes. No fine-tuning. Every session it gets smarter.
-              </MilestoneRow>
-
-              <MilestoneRow accent="514 rules">
-                Self-learning Claude Code layer. Hooks into every action, catches every mistake, never repeats it.{" "}
-                <a href="https://github.com/ndpvt-web" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] hover:underline">
-                  GitHub ↗
-                </a>
               </MilestoneRow>
 
               <MilestoneRow accent="100%" last>
