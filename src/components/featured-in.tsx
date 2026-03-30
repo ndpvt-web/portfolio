@@ -73,7 +73,7 @@ export default function FeaturedIn() {
               custom={i}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-60px" }}
+              viewport={{ once: true, amount: 0.05 }}
               variants={cardVariants}
               className="rounded-xl border border-[var(--bg-border)] bg-[var(--bg-code)] overflow-hidden flex flex-col"
             >

@@ -53,7 +53,7 @@ function TierSection({ title, projects, variant, gridClass, sectionVariant, inde
             custom={indexOffset + i}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-40px" }}
+            viewport={{ once: true, amount: 0.05 }}
             variants={fadeIn}
           >
             <ProjectCard project={project} variant={variant} />

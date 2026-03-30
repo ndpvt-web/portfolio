@@ -8,6 +8,7 @@ import Section from "@/components/section";
 import { TerminalBlock } from "@/components/terminal-block";
 import { ScrollProgress } from "@/components/scroll-progress";
 import CaseStudyNav from "@/components/case-study-nav";
+import MermaidDiagram from "@/components/mermaid-diagram";
 
 interface CaseStudyLayoutProps {
   project: Project;
@@ -114,7 +115,7 @@ export default function CaseStudyLayout({
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: true, amount: 0.05 }}
           className="max-w-3xl"
         >
           <p
@@ -132,13 +133,35 @@ export default function CaseStudyLayout({
         </motion.div>
       </Section>
 
+      {/* ── ARCHITECTURE ── */}
+      {cs.architectureMermaid && (
+        <Section variant="mid">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.05 }}
+          >
+            <p
+              className="font-mono text-[var(--text-tertiary)] mb-6"
+              style={{ fontSize: "var(--text-caption)" }}
+            >
+              ARCHITECTURE
+            </p>
+            <div className="rounded-xl border border-[var(--bg-border)] bg-[var(--bg-code)] p-6 overflow-x-auto">
+              <MermaidDiagram chart={cs.architectureMermaid} className="flex justify-center [&_svg]:max-w-full" />
+            </div>
+          </motion.div>
+        </Section>
+      )}
+
       {/* ── APPROACH ── */}
       <Section variant="mid">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: true, amount: 0.05 }}
           className="max-w-3xl"
         >
           <p
@@ -158,7 +181,7 @@ export default function CaseStudyLayout({
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
+            viewport={{ once: true, amount: 0.05 }}
           >
             <p
               className="font-mono text-[var(--text-tertiary)] mb-6"
@@ -183,6 +206,32 @@ export default function CaseStudyLayout({
                 </div>
               ))}
             </div>
+          </motion.div>
+        </Section>
+      )}
+
+      {/* ── IMPACT ── */}
+      {cs.impact && (
+        <Section variant="mid">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.05 }}
+            className="max-w-3xl"
+          >
+            <p
+              className="font-mono text-[var(--text-tertiary)] mb-4"
+              style={{ fontSize: "var(--text-caption)" }}
+            >
+              IMPACT
+            </p>
+            <p
+              className="text-[var(--text-primary)] font-semibold leading-relaxed"
+              style={{ fontSize: "var(--text-body)" }}
+            >
+              {cs.impact}
+            </p>
           </motion.div>
         </Section>
       )}
