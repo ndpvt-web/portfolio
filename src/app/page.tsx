@@ -4,6 +4,7 @@ import FeaturedIn from "@/components/featured-in";
 import CurrentlyWorkingOn from "@/components/currently-working-on";
 import ContactCta from "@/components/contact-cta";
 import Section from "@/components/section";
+import AboutAccordion from "@/components/about-accordion";
 
 export default function HomePage() {
   return (
@@ -37,51 +38,7 @@ export default function HomePage() {
               I architect AI agent systems.
             </h2>
 
-            {/* Stats grid -- scannable in 3 seconds */}
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { stat: "$20K", label: "Claude API in 40 days" },
-                { stat: "50K+", label: "users shipped to" },
-                { stat: "15M", label: "organic views, no ads" },
-                { stat: "8", label: "autonomous agents, 24/7" },
-                { stat: "514", label: "rules self-learned" },
-                { stat: "100%", label: "HKU scholarship" },
-              ].map((item) => (
-                <div key={item.stat} className="border border-[var(--border-subtle)] rounded-lg px-4 py-3">
-                  <div className="font-bold text-[var(--accent)] text-2xl" style={{ fontFamily: "var(--font-display)" }}>
-                    {item.stat}
-                  </div>
-                  <div className="text-[var(--text-secondary)] text-sm mt-0.5">{item.label}</div>
-                </div>
-              ))}
-            </div>
-
-            {/* Compressed highlights */}
-            <ul className="flex flex-col gap-2 text-[var(--text-secondary)]" style={{ fontSize: "var(--text-body)", lineHeight: 1.6 }}>
-              <li>
-                Built <strong className="text-[var(--text-primary)]">Mac Bridge</strong> &amp;{" "}
-                <strong className="text-[var(--text-primary)]">Browser Agent</strong> at{" "}
-                <strong className="text-[var(--text-primary)]">HappyCapy AI</strong> ($10M raised).
-              </li>
-              <li>
-                Connected Claude Code to desktop for computer use --{" "}
-                <strong className="text-[var(--text-primary)]">Anthropic shipped it 2 weeks later</strong>.
-              </li>
-              <li>
-                Automated iOS builds via Xcode + Claude Code --{" "}
-                <strong className="text-[var(--text-primary)]">Manus AI shipped it 4 days later</strong>.
-              </li>
-              <li>
-                <strong className="text-[var(--text-primary)]">Guest speaker</strong>, HappyCapy HK launch. $100M+ startup, 200+ VCs &amp; builders.
-              </li>
-              <li>
-                Autonomous AI agency: finds leads, builds sites, closes deals.{" "}
-                <strong className="text-[var(--text-primary)]">24% conversion</strong>. No human in the loop.
-              </li>
-              <li>
-                Building <strong className="text-[var(--text-primary)]">Atlas</strong> -- desktop agent that learns from mistakes without fine-tuning.
-              </li>
-            </ul>
+            <AboutAccordion />
 
             <p className="font-mono text-[var(--accent)]" style={{ fontSize: "var(--text-small)" }}>
               Available for consulting.
