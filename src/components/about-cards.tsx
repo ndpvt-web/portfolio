@@ -15,7 +15,7 @@ const milestones: Milestone[] = [
   },
   {
     highlight: "50,000+",
-    desc: "Users shipped to at HappyCapy AI ($10M raised). Built the Mac Bridge and Browser Agent.",
+    desc: "users. Solely built the Mac Bridge and Browser Agent for HappyCapy AI ($10M raised). Shipped to 50,000+ users in just 3 days.",
   },
   {
     highlight: "Anthropic",
