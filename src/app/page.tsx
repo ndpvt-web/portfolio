@@ -37,52 +37,55 @@ export default function HomePage() {
               I architect AI agent systems.
             </h2>
 
-            <div className="flex flex-col gap-4 text-[var(--text-secondary)]" style={{ fontSize: "var(--text-body)", lineHeight: 1.7 }}>
-              <p>
-                Spent <strong className="text-[var(--text-primary)]">$20,000 on Claude Code API in 40 days</strong>.
-              </p>
-              <p>
-                Built the <strong className="text-[var(--text-primary)]">Mac Bridge</strong> and{" "}
-                <strong className="text-[var(--text-primary)]">Browser Agent</strong> for{" "}
-                <strong className="text-[var(--text-primary)]">HappyCapy AI</strong> ($10M raised).
-                Shipped to <strong className="text-[var(--text-primary)]">50,000+ users</strong>.
-                I connected Claude Code to my desktop and used it for computer use --
-                Anthropic released that as a feature 2 weeks later.
-                I automated iOS app builds by connecting Xcode to Claude Code through my Mac --
-                Manus AI released that as their feature 4 days later.
-              </p>
-              <p>
-                Ran HappyCapy&apos;s global product launch marketing. Built a system that
-                reverse-engineers how ChatGPT and Perplexity decide what to recommend, then
-                got us into those recommendations. <strong className="text-[var(--text-primary)]">15
-                million views on Reddit in 4 weeks</strong>. Organic. No ads.
-              </p>
-              <p>
-                <strong className="text-[var(--text-primary)]">Guest speaker at HappyCapy&apos;s
-                Hong Kong launch</strong>. $100M+ valued startup, 200+ people -- VCs, investors, builders.
-              </p>
-              <p>
-                Built an <strong className="text-[var(--text-primary)]">AI agency that runs completely
-                on its own</strong>. 8 agents, 24/7. Find businesses without websites, build sites,
-                send outreach, close deals. No human in the loop. 24% conversion rate.
-              </p>
-              <p>
-                Testing <strong className="text-[var(--text-primary)]">Atlas</strong> right now --
-                world&apos;s first desktop agent that learns from its own mistakes without changing the
-                model weights or fine tuning. Every session it gets smarter.
-              </p>
-              <p>
-                Built a <strong className="text-[var(--text-primary)]">self-learning layer on Claude
-                Code</strong>. Hooks into every action, catches every mistake, never repeats it.
-                514 rules learned on its own in just a few days of use.
-              </p>
-              <p>
-                Studying at <strong className="text-[var(--text-primary)]">HKU on a 100% scholarship</strong>.
-              </p>
-              <p className="font-mono text-[var(--accent)]" style={{ fontSize: "var(--text-small)" }}>
-                Available for consulting.
-              </p>
+            {/* Stats grid -- scannable in 3 seconds */}
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { stat: "$20K", label: "Claude API in 40 days" },
+                { stat: "50K+", label: "users shipped to" },
+                { stat: "15M", label: "organic views, no ads" },
+                { stat: "8", label: "autonomous agents, 24/7" },
+                { stat: "514", label: "rules self-learned" },
+                { stat: "100%", label: "HKU scholarship" },
+              ].map((item) => (
+                <div key={item.stat} className="border border-[var(--border-subtle)] rounded-lg px-4 py-3">
+                  <div className="font-bold text-[var(--accent)] text-2xl" style={{ fontFamily: "var(--font-display)" }}>
+                    {item.stat}
+                  </div>
+                  <div className="text-[var(--text-secondary)] text-sm mt-0.5">{item.label}</div>
+                </div>
+              ))}
             </div>
+
+            {/* Compressed highlights */}
+            <ul className="flex flex-col gap-2 text-[var(--text-secondary)]" style={{ fontSize: "var(--text-body)", lineHeight: 1.6 }}>
+              <li>
+                Built <strong className="text-[var(--text-primary)]">Mac Bridge</strong> &amp;{" "}
+                <strong className="text-[var(--text-primary)]">Browser Agent</strong> at{" "}
+                <strong className="text-[var(--text-primary)]">HappyCapy AI</strong> ($10M raised).
+              </li>
+              <li>
+                Connected Claude Code to desktop for computer use --{" "}
+                <strong className="text-[var(--text-primary)]">Anthropic shipped it 2 weeks later</strong>.
+              </li>
+              <li>
+                Automated iOS builds via Xcode + Claude Code --{" "}
+                <strong className="text-[var(--text-primary)]">Manus AI shipped it 4 days later</strong>.
+              </li>
+              <li>
+                <strong className="text-[var(--text-primary)]">Guest speaker</strong>, HappyCapy HK launch. $100M+ startup, 200+ VCs &amp; builders.
+              </li>
+              <li>
+                Autonomous AI agency: finds leads, builds sites, closes deals.{" "}
+                <strong className="text-[var(--text-primary)]">24% conversion</strong>. No human in the loop.
+              </li>
+              <li>
+                Building <strong className="text-[var(--text-primary)]">Atlas</strong> -- desktop agent that learns from mistakes without fine-tuning.
+              </li>
+            </ul>
+
+            <p className="font-mono text-[var(--accent)]" style={{ fontSize: "var(--text-small)" }}>
+              Available for consulting.
+            </p>
 
             <div className="flex flex-wrap gap-4 font-mono" style={{ fontSize: "var(--text-small)" }}>
               <a href="https://linkedin.com/in/niveshdandyan" target="_blank" rel="noopener noreferrer" className="text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors">
