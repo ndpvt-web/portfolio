@@ -13,31 +13,32 @@ const fadeUp = {
   }),
 };
 
-function MilestoneRow({ accent, logo, logoAlt, children }: {
+function MilestoneRow({ accent, logo, logoAlt, last, children }: {
   accent?: string;
   logo?: string;
   logoAlt?: string;
+  last?: boolean;
   children: React.ReactNode;
 }) {
   return (
     <div
-      className="grid items-baseline gap-x-4"
+      className={`grid items-start gap-x-5 py-2.5 ${last ? "" : "border-b border-white/[0.06]"}`}
       style={{ gridTemplateColumns: "100px 1fr" }}
     >
-      <div className="flex items-center justify-end h-full" style={{ paddingTop: "2px" }}>
+      <div className="flex items-center justify-end pt-px">
         {logo ? (
           <Image
             src={logo}
             alt={logoAlt || ""}
             width={90}
             height={18}
-            className="h-[16px] w-auto brightness-0 invert opacity-80"
+            className="h-[14px] w-auto brightness-0 invert opacity-70"
             style={{ filter: "brightness(0) invert(1)", maxWidth: "100px" }}
           />
         ) : (
           <span
-            className="font-bold text-[var(--accent)] font-mono text-right w-full"
-            style={{ fontSize: "clamp(0.8rem, 1vw, 0.95rem)" }}
+            className="font-bold text-[var(--accent)] font-mono text-right w-full whitespace-nowrap"
+            style={{ fontSize: "0.85rem" }}
           >
             {accent}
           </span>
@@ -45,7 +46,7 @@ function MilestoneRow({ accent, logo, logoAlt, children }: {
       </div>
       <span
         className="text-[var(--text-secondary)]"
-        style={{ fontSize: "clamp(0.8rem, 0.95vw, 0.9rem)", lineHeight: 1.55 }}
+        style={{ fontSize: "0.85rem", lineHeight: 1.6 }}
       >
         {children}
       </span>
@@ -146,7 +147,7 @@ export default function Hero() {
               What I&apos;ve built
             </h2>
 
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col">
               <MilestoneRow accent="$20,000">
                 Spent on Claude Code API in 40 days.
               </MilestoneRow>
@@ -186,7 +187,7 @@ export default function Hero() {
                 </a>
               </MilestoneRow>
 
-              <MilestoneRow accent="100%">
+              <MilestoneRow accent="100%" last>
                 Scholarship at HKU.
               </MilestoneRow>
             </div>
