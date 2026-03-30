@@ -3,16 +3,16 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 
 const milestones = [
-  "$20,000 on Claude Code API in 40 days.",
-  "Built Mac Bridge & Browser Agent at HappyCapy AI ($10M raised). Shipped to 50,000+ users.",
-  "Connected Claude Code to my desktop for computer use \u2014 Anthropic released that as a feature 2 weeks later.",
-  "Automated iOS builds via Xcode + Claude Code \u2014 Manus AI released that as their feature 4 days later.",
-  "15 million Reddit views in 4 weeks. Organic. No ads.",
-  "Guest speaker at HappyCapy\u2019s Hong Kong launch. $100M+ valued startup, 200+ people.",
-  "Autonomous AI agency. 8 agents, 24/7, 24% conversion. No human in the loop.",
-  "Building Atlas \u2014 desktop agent that learns from its own mistakes. No fine-tuning.",
-  "Self-learning layer on Claude Code. 514 rules learned autonomously in days.",
-  "Studying at HKU on a 100% scholarship.",
+  { highlight: "$20,000", desc: "spent on Claude Code API in 40 days" },
+  { highlight: "50,000+", desc: "users shipped to at HappyCapy AI ($10M raised)" },
+  { highlight: "2 weeks later", desc: "Anthropic released my desktop computer use as their feature" },
+  { highlight: "4 days later", desc: "Manus AI released my iOS build automation as their feature" },
+  { highlight: "15M views", desc: "on Reddit in 4 weeks. Organic. No ads." },
+  { highlight: "$100M+", desc: "startup. Guest speaker at HappyCapy\u2019s Hong Kong launch. 200+ people." },
+  { highlight: "24%", desc: "conversion. Autonomous AI agency. 8 agents, 24/7. No human." },
+  { highlight: "Atlas", desc: "Desktop agent that learns from its own mistakes. No fine-tuning." },
+  { highlight: "514 rules", desc: "learned autonomously. Self-learning layer on Claude Code." },
+  { highlight: "100%", desc: "scholarship at HKU" },
 ];
 
 export default function AboutCards() {
@@ -77,20 +77,31 @@ export default function AboutCards() {
         </button>
 
         {/* Content */}
-        <div key={current} className="animate-fade-in px-16 flex flex-col items-center gap-6">
-          <span className="text-[var(--accent)] font-mono text-sm tracking-widest uppercase opacity-60">
+        <div key={current} className="animate-fade-in px-16 flex flex-col items-center gap-4">
+          <span className="text-[var(--text-secondary)] font-mono tracking-widest uppercase" style={{ fontSize: "var(--text-caption)" }}>
             {String(current + 1).padStart(2, "0")} / {String(milestones.length).padStart(2, "0")}
           </span>
           <p
-            className="text-center font-bold text-[var(--text-primary)]"
+            className="text-center text-[var(--accent)]"
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)",
-              lineHeight: 1.4,
-              letterSpacing: "-0.02em",
+              fontSize: "clamp(2.5rem, 5vw, 4rem)",
+              fontWeight: 800,
+              lineHeight: 1.1,
+              letterSpacing: "-0.04em",
             }}
           >
-            {milestones[current]}
+            {milestones[current].highlight}
+          </p>
+          <p
+            className="text-center text-[var(--text-secondary)]"
+            style={{
+              fontSize: "clamp(0.875rem, 1.2vw, 1.0625rem)",
+              lineHeight: 1.5,
+              maxWidth: "85%",
+            }}
+          >
+            {milestones[current].desc}
           </p>
         </div>
 
@@ -123,10 +134,6 @@ export default function AboutCards() {
         ))}
       </div>
 
-      {/* Counter */}
-      <p className="text-center text-[var(--text-secondary)] font-mono" style={{ fontSize: "var(--text-small)" }}>
-        {current + 1} / {milestones.length}
-      </p>
     </div>
   );
 }
