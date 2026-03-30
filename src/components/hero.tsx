@@ -50,7 +50,8 @@ export default function Hero() {
                 src="/images/nivesh-speaking.jpg"
                 alt="Nivesh Dandyan speaking at HappyCapy Hong Kong launch event"
                 fill
-                className="object-cover object-top"
+                className="object-cover"
+                style={{ objectPosition: "center 20%" }}
                 sizes="(max-width: 768px) 100vw, 50vw"
                 priority
               />
