@@ -55,8 +55,8 @@ export default function AboutCards() {
     >
       {/* Card */}
       <div
-        className="relative border border-[var(--border-subtle)] rounded-xl px-6 py-8 min-h-[120px] flex items-center justify-center overflow-hidden select-none"
-        style={{ background: "var(--bg-code)" }}
+        className="relative aspect-square rounded-2xl border-2 border-[var(--accent)]/20 flex flex-col items-center justify-center overflow-hidden select-none"
+        style={{ background: "linear-gradient(135deg, var(--bg-code) 0%, var(--bg-elevated) 100%)" }}
         onTouchStart={(e) => setTouchStart(e.touches[0].clientX)}
         onTouchEnd={(e) => {
           if (touchStart === null) return;
@@ -70,28 +70,37 @@ export default function AboutCards() {
         {/* Left arrow */}
         <button
           onClick={() => go("prev")}
-          className="absolute left-2 top-1/2 -translate-y-1/2 text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors text-lg px-1"
+          className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-[var(--accent)]/10 hover:bg-[var(--accent)]/20 text-[var(--accent)] transition-colors flex items-center justify-center text-xl"
           aria-label="Previous"
         >
-          &lsaquo;
+          &#8249;
         </button>
 
         {/* Content */}
-        <p
-          key={current}
-          className="text-center text-[var(--text-primary)] font-medium px-6 animate-fade-in"
-          style={{ fontSize: "var(--text-body)", lineHeight: 1.6 }}
-        >
-          {milestones[current]}
-        </p>
+        <div key={current} className="animate-fade-in px-16 flex flex-col items-center gap-6">
+          <span className="text-[var(--accent)] font-mono text-sm tracking-widest uppercase opacity-60">
+            {String(current + 1).padStart(2, "0")} / {String(milestones.length).padStart(2, "0")}
+          </span>
+          <p
+            className="text-center font-bold text-[var(--text-primary)]"
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)",
+              lineHeight: 1.4,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            {milestones[current]}
+          </p>
+        </div>
 
         {/* Right arrow */}
         <button
           onClick={() => go("next")}
-          className="absolute right-2 top-1/2 -translate-y-1/2 text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors text-lg px-1"
+          className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-[var(--accent)]/10 hover:bg-[var(--accent)]/20 text-[var(--accent)] transition-colors flex items-center justify-center text-xl"
           aria-label="Next"
         >
-          &rsaquo;
+          &#8250;
         </button>
       </div>
 
