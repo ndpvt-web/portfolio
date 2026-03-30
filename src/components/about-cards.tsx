@@ -131,7 +131,7 @@ export default function AboutCards() {
     >
       {/* Card */}
       <div
-        className="relative aspect-square rounded-2xl border-2 border-[var(--accent)]/20 flex flex-col items-center justify-center overflow-hidden select-none"
+        className="relative aspect-[4/3] rounded-2xl border-2 border-[var(--accent)]/20 flex flex-col items-center justify-center overflow-hidden select-none"
         style={{ background: "linear-gradient(135deg, var(--bg-code) 0%, var(--bg-elevated) 100%)" }}
         onTouchStart={(e) => setTouchStart(e.touches[0].clientX)}
         onTouchEnd={(e) => {

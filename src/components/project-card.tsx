@@ -133,9 +133,15 @@ function CompactCard({ project, className }: { project: Project; className?: str
           <span className="text-[var(--text-tertiary)] text-xs truncate">{project.tagline}</span>
         </div>
         <span className="shrink-0 text-[var(--text-tertiary)] group-hover:text-[var(--accent)] transition-colors">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
+          {isExternal ? (
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+            </svg>
+          ) : (
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          )}
         </span>
       </motion.div>
     </Link>
