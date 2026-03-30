@@ -9,8 +9,15 @@ const items = [
   },
   {
     headline: "Built Mac Bridge & Browser Agent for HappyCapy AI ($10M raised). Shipped to 50,000+ users.",
-    detail:
-      "I connected Claude Code to my desktop and used it for computer use \u2014 Anthropic released that as a feature 2 weeks later. I automated iOS app builds by connecting Xcode to Claude Code through my Mac \u2014 Manus AI released that as their feature 4 days later.",
+    detail: null,
+  },
+  {
+    headline: "Connected Claude Code to my desktop for computer use \u2014 Anthropic released that as a feature 2 weeks later.",
+    detail: null,
+  },
+  {
+    headline: "Automated iOS app builds by connecting Xcode to Claude Code \u2014 Manus AI released that as their feature 4 days later.",
+    detail: null,
   },
   {
     headline: "15 million views on Reddit in 4 weeks. Organic. No ads.",
@@ -18,8 +25,8 @@ const items = [
       "Ran HappyCapy\u2019s global product launch marketing. Built a system that reverse-engineers how ChatGPT and Perplexity decide what to recommend, then got us into those recommendations.",
   },
   {
-    headline: "Guest speaker at HappyCapy\u2019s Hong Kong launch.",
-    detail: "$100M+ valued startup, 200+ people \u2014 VCs, investors, builders.",
+    headline: "Guest speaker at HappyCapy\u2019s Hong Kong launch. $100M+ valued startup, 200+ people \u2014 VCs, investors, builders.",
+    detail: null,
   },
   {
     headline: "Built an AI agency that runs completely on its own.",
