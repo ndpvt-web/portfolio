@@ -39,24 +39,45 @@ export default function HomePage() {
 
             <div className="flex flex-col gap-4 text-[var(--text-secondary)]" style={{ fontSize: "var(--text-body)", lineHeight: 1.7 }}>
               <p>
-                Currently at <strong className="text-[var(--text-primary)]">HappyCapy</strong> (raised
-                $10M, hit $1M ARR in 15 days) where I single-handedly shipped two flagship
-                products -- <strong className="text-[var(--text-primary)]">Mac Bridge</strong> and{" "}
-                <strong className="text-[var(--text-primary)]">Browser Agent</strong> -- now
-                serving <strong className="text-[var(--text-primary)]">50,000+ users</strong>.
+                Spent <strong className="text-[var(--text-primary)]">$20,000 on Claude Code API in 40 days</strong>.
               </p>
               <p>
-                On the growth side, I drove <strong className="text-[var(--text-primary)]">15M organic
-                views on Reddit in 4 weeks</strong> from a single account. Identified and patched
-                critical sandbox security vulnerabilities through prompt injection testing before
-                they reached production. Served as <strong className="text-[var(--text-primary)]">guest
-                speaker at the HappyCapy Hong Kong launch</strong>, demoing live AI agent systems
-                to founders, investors, and the local tech community.
+                Built the <strong className="text-[var(--text-primary)]">Mac Bridge</strong> and{" "}
+                <strong className="text-[var(--text-primary)]">Browser Agent</strong> for{" "}
+                <strong className="text-[var(--text-primary)]">HappyCapy AI</strong> ($10M raised).
+                Shipped to <strong className="text-[var(--text-primary)]">50,000+ users</strong>.
+                I connected Claude Code to my desktop and used it for computer use --
+                Anthropic released that as a feature 2 weeks later.
+                I automated iOS app builds by connecting Xcode to Claude Code through my Mac --
+                Manus AI released that as their feature 4 days later.
               </p>
               <p>
-                Studying at <strong className="text-[var(--text-primary)]">HKU on a 100%
-                scholarship</strong>. Currently building a self-evolving computer-use agent
-                that learns from its own mistakes -- in testing phase now.
+                Ran HappyCapy&apos;s global product launch marketing. Built a system that
+                reverse-engineers how ChatGPT and Perplexity decide what to recommend, then
+                got us into those recommendations. <strong className="text-[var(--text-primary)]">15
+                million views on Reddit in 4 weeks</strong>. Organic. No ads.
+              </p>
+              <p>
+                <strong className="text-[var(--text-primary)]">Guest speaker at HappyCapy&apos;s
+                Hong Kong launch</strong>. $100M+ valued startup, 200+ people -- VCs, investors, builders.
+              </p>
+              <p>
+                Built an <strong className="text-[var(--text-primary)]">AI agency that runs completely
+                on its own</strong>. 8 agents, 24/7. Find businesses without websites, build sites,
+                send outreach, close deals. No human in the loop. 24% conversion rate.
+              </p>
+              <p>
+                Testing <strong className="text-[var(--text-primary)]">Atlas</strong> right now --
+                world&apos;s first desktop agent that learns from its own mistakes without changing the
+                model weights or fine tuning. Every session it gets smarter.
+              </p>
+              <p>
+                Built a <strong className="text-[var(--text-primary)]">self-learning layer on Claude
+                Code</strong>. Hooks into every action, catches every mistake, never repeats it.
+                514 rules learned on its own in just a few days of use.
+              </p>
+              <p>
+                Studying at <strong className="text-[var(--text-primary)]">HKU on a 100% scholarship</strong>.
               </p>
               <p className="font-mono text-[var(--accent)]" style={{ fontSize: "var(--text-small)" }}>
                 Available for consulting.
