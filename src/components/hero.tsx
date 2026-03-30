@@ -13,34 +13,40 @@ const fadeUp = {
   }),
 };
 
-function Milestone({ accent, children }: { accent: string; children: React.ReactNode }) {
+function MilestoneRow({ accent, logo, logoAlt, children }: {
+  accent?: string;
+  logo?: string;
+  logoAlt?: string;
+  children: React.ReactNode;
+}) {
   return (
-    <div className="flex gap-3 items-start">
+    <div
+      className="grid items-baseline gap-x-4"
+      style={{ gridTemplateColumns: "100px 1fr" }}
+    >
+      <div className="flex items-center justify-end h-full" style={{ paddingTop: "2px" }}>
+        {logo ? (
+          <Image
+            src={logo}
+            alt={logoAlt || ""}
+            width={90}
+            height={18}
+            className="h-[16px] w-auto brightness-0 invert opacity-80"
+            style={{ filter: "brightness(0) invert(1)", maxWidth: "100px" }}
+          />
+        ) : (
+          <span
+            className="font-bold text-[var(--accent)] font-mono text-right w-full"
+            style={{ fontSize: "clamp(0.8rem, 1vw, 0.95rem)" }}
+          >
+            {accent}
+          </span>
+        )}
+      </div>
       <span
-        className="shrink-0 font-bold text-[var(--accent)] font-mono"
-        style={{ fontSize: "clamp(0.875rem, 1.2vw, 1.1rem)", minWidth: "7ch", textAlign: "right" }}
+        className="text-[var(--text-secondary)]"
+        style={{ fontSize: "clamp(0.8rem, 0.95vw, 0.9rem)", lineHeight: 1.55 }}
       >
-        {accent}
-      </span>
-      <span className="text-[var(--text-secondary)]" style={{ fontSize: "clamp(0.8125rem, 1vw, 0.9375rem)", lineHeight: 1.5 }}>
-        {children}
-      </span>
-    </div>
-  );
-}
-
-function LogoMilestone({ logo, alt, children }: { logo: string; alt: string; children: React.ReactNode }) {
-  return (
-    <div className="flex gap-3 items-start">
-      <Image
-        src={logo}
-        alt={alt}
-        width={80}
-        height={20}
-        className="shrink-0 h-5 w-auto brightness-0 invert opacity-80 mt-0.5"
-        style={{ filter: "brightness(0) invert(1)", minWidth: "7ch" }}
-      />
-      <span className="text-[var(--text-secondary)]" style={{ fontSize: "clamp(0.8125rem, 1vw, 0.9375rem)", lineHeight: 1.5 }}>
         {children}
       </span>
     </div>
@@ -140,49 +146,49 @@ export default function Hero() {
               What I&apos;ve built
             </h2>
 
-            <div className="flex flex-col gap-3.5">
-              <Milestone accent="$20,000">
+            <div className="flex flex-col gap-3">
+              <MilestoneRow accent="$20,000">
                 Spent on Claude Code API in 40 days.
-              </Milestone>
+              </MilestoneRow>
 
-              <Milestone accent="50,000+">
+              <MilestoneRow accent="50,000+">
                 users. Solely built the Mac Bridge and Browser Agent for HappyCapy AI ($10M raised). Shipped in just 3 days.
-              </Milestone>
+              </MilestoneRow>
 
-              <LogoMilestone logo="/images/anthropic-logo.svg" alt="Anthropic">
+              <MilestoneRow logo="/images/anthropic-logo.svg" logoAlt="Anthropic">
                 I connected Claude Code to my desktop for computer use. Anthropic released that as a feature — 2 weeks later.
-              </LogoMilestone>
+              </MilestoneRow>
 
-              <LogoMilestone logo="/images/manus-logo.svg" alt="Manus AI">
+              <MilestoneRow logo="/images/manus-logo.svg" logoAlt="Manus AI">
                 I automated iOS app builds via Xcode + Claude Code. Manus AI released that as their feature — 4 days later.
-              </LogoMilestone>
+              </MilestoneRow>
 
-              <Milestone accent="15M views">
+              <MilestoneRow accent="15M views">
                 On Reddit in 4 weeks. Organic. No ads. Built a system that reverse-engineers how ChatGPT and Perplexity decide what to recommend.
-              </Milestone>
+              </MilestoneRow>
 
-              <Milestone accent="Speaker">
+              <MilestoneRow accent="Speaker">
                 HappyCapy&apos;s Hong Kong launch. $100M+ valued startup, 200+ people — VCs, investors, builders.
-              </Milestone>
+              </MilestoneRow>
 
-              <Milestone accent="AI Agency">
+              <MilestoneRow accent="AI Agency">
                 Fully automated. No human in the loop. 8 agents, 24/7 — find leads, build sites, outreach, close deals. 24% conversion.
-              </Milestone>
+              </MilestoneRow>
 
-              <Milestone accent="Atlas">
+              <MilestoneRow accent="Atlas">
                 World&apos;s first desktop agent that learns from its own mistakes. No fine-tuning. Every session it gets smarter.
-              </Milestone>
+              </MilestoneRow>
 
-              <Milestone accent="514 rules">
+              <MilestoneRow accent="514 rules">
                 Self-learning Claude Code layer. Hooks into every action, catches every mistake, never repeats it.{" "}
                 <a href="https://github.com/ndpvt-web" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] hover:underline">
                   GitHub ↗
                 </a>
-              </Milestone>
+              </MilestoneRow>
 
-              <Milestone accent="100%">
+              <MilestoneRow accent="100%">
                 Scholarship at HKU.
-              </Milestone>
+              </MilestoneRow>
             </div>
           </motion.div>
         </div>
